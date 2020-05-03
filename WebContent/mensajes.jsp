@@ -29,9 +29,11 @@
 <title>Lista de mensajes</title>
 </head>
 <body>
+
+<div class="container">
+
+
 	<jsp:useBean id="mDao" class="covidjpa.dao.MensajeDao" scope="request"></jsp:useBean>
-
-
 	<table class="table">
 		<thead>
 			<tr>
@@ -40,28 +42,44 @@
 				<th scope="col">Email</th>
 				<th scope="col">WebSite</th>
 				<th scope="col">Mensaje</th>
+				<th scope="col">Usuario</th>
+				<th> Acciones </th>
 			</tr>
 		</thead>
-
-
 		<tbody>
 			<c:forEach var="m" items="${mDao.listar()}">
-
-
-
-				<tr>
+				<form  action="MensajeController" method="GET">	
+				<input type="hidden" id="id" name="id" value="${ m.getId()}">		
+				<input type="hidden" id="nombre" name="nombre" value="${ m.getName()}">		
+				<input type="hidden" id="email" name="email" value="${ m.getEmail()}">		
+				<input type="hidden" id="website" name="website" value="${ m.getWebsite()}">		
+				<input type="hidden" id="mensaje" name="message" value="${ m.getMessage()}">	
+				<input type="hidden" id="usuario" name="usuario" value="${ m.getUsuario()}">	
+				
+					<tr>				
 					<th><c:out value="${ m.getId()}" /></th>
 					<th><c:out value="${m.getName()}" /></th>
 					<th><c:out value="${m.getEmail() }" /></th>
 					<th><c:out value="${m.getWebsite()}" /></th>
 					<th><c:out value="${m.getMessage()}" /></th>
-
+					<th>
+					<button type="submit" class="btn btn-success" id="accion" name="accion" value="1"> Eliminar </button>
+					<button type="submit" class="btn btn-success" id="accion" name="accion" value="2"> Actualizar </button>								
+					</th>
 				</tr>
-
+				</form>
 			</c:forEach>
 		</tbody>
 
 	</table>
+<a href="index.jsp" class="btn btn-danger"> Volver </a>
+
+<form action="MensajeController" method="GET">
+
+					<button type="submit" class="btn btn-success" name="accion" id="accion" value="0"> Agregar </button>
+
+</form>
+</div>
 
 
 </body>

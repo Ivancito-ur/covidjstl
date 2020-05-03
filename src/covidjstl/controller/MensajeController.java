@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import covidjpa.dao.MensajeDao;
+import covidjpa.entities.Mensaje;
 
 /**
  * Servlet implementation class MensajeController
@@ -31,9 +32,61 @@ public class MensajeController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		MensajeDao mDao = new MensajeDao();
-	    RequestDispatcher rd = request.getRequestDispatcher("mensajes.jsp");
+		
+		if(request.getParameter("id")==null){
+	
+		MensajeDao mDao = new MensajeDao();		
+		RequestDispatcher rd = request.getRequestDispatcher("mensajes.jsp");
 		rd.forward(request, response); 
+		
+		}
+
+		
+		if(request.getParameter("id")!=null){
+		
+		Integer id = Integer.parseInt(request.getParameter("id")) ;
+		String nombre = (String)request.getParameter("nombre");
+		String email = (String)request.getParameter("email");
+		String website = (String)request.getParameter("website");
+		String mensaje = (String)request.getParameter("mensaje");
+		String usuario = (String)request.getParameter("usuario");
+
+		Mensaje m = new Mensaje (id,nombre,email,website,mensaje, usuario);
+		
+		String accion= request.getParameter("accion");	
+		System.out.println(accion);
+		
+		if(accion.equals("1")){
+			MensajeDao mDao = new MensajeDao();
+			mDao.delete(m);
+			request.setAttribute("id", null);
+			
+			RequestDispatcher index = request.getRequestDispatcher("index.jsp");
+			index.forward(request, response); 
+		
+		}
+		else if (accion.equals("2")){ //Indicativo de actualizar
+
+			request.setAttribute("nombre", nombre);
+			request.setAttribute("email", email);
+			request.setAttribute("website", website);
+			request.setAttribute("mensaje", mensaje);
+			request.setAttribute("id", id);
+			request.setAttribute("usuario", usuario);
+			request.setAttribute("idA", 2);			
+			RequestDispatcher index = request.getRequestDispatcher("agregarActualizar.jsp");
+			index.forward(request, response); 
+			
+		}
+		
+		else if (accion.equals("0")){
+			
+		}
+	
+		
+		}
+			
+		
 	}
 
 	/**
