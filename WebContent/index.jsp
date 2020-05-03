@@ -22,15 +22,19 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-<a href="MensajeController" class="btn btn-primary">
-		Listar mensajes
-</a>
+<div class = "container" style="border: blue 4px solid; border-radius: 6px">
+<div class="container card" style="background: silver">
+	<h2>Administrador</h2>
+	<span class="requiered_notification">* Mensajería la calidad</span>
+	<br>
+	<br>
 <a href="MensajeController" class="btn btn-success">
 		Administrar mensajes
 </a>
+	<input>
+	</div>
 
 
-<div class = "container" style="border: blue 4px solid; border-radius: 6px">
 
 
 </div>

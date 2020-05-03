@@ -73,7 +73,7 @@
 		</tbody>
 
 	</table>
-<a href="index.jsp" class="btn btn-danger"> Volver </a>
+<a href="index.jsp" class="btn btn-warning"> Volver </a>
 
 <form action="MensajeController" method="GET">
 
