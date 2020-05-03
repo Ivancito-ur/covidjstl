@@ -23,46 +23,53 @@
 </head>
 <body>
 
-<form>
+<div>
+
+<form class="container" style="border: blue 4px solid; border-radius: 6px" method="POST" action="MensajeController">
   <div class="form-group row">
     <label for="staticEmail" class="col-sm-2 col-form-label">ID</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" id="id" name="id" value="#">
+      <input type="number" readonly class="form-control-plaintext" id="id" name="id" value="${id}">
     </div>
   </div>
   <div class="form-group row">
     <label for="staticNombre" class="col-sm-2 col-form-label">Nombre</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" id="nombre" name="nombre" value="Nombre">
+      <input type="text"  class="form-control" id="nombre" name="nombre" value="${nombre}">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="text"  class="form-control" id="email" nombre="email" placeholder="Email">
+      <input type="text"  class="form-control" id="email" name="email" placeholder="Email" value="${email}">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputWebsite" class="col-sm-2 col-form-label">WebSite</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="website" name="website" placeholder="Website">
+      <input type="text" class="form-control" id="website" name="website" placeholder="Website" value="${website}">
     </div>
   </div>
   <div class="form-group row">
     <label for="inputMensaje" class="col-sm-2 col-form-label">Mensaje</label>
     <div class="col-sm-10">
-    <textarea name="textarea" rows="10" cols="50" class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje"></textarea>
+    <input type="text" class="form-control" id="website" name="mensaje" placeholder="" value="${mensaje}">
     </div>
   </div>
-  <input type="hidden" name="idA" id="idA">
+  <input type="hidden" name="idA" id="idA" value="${idA}">
   <div class="form-group row">
     <label for="staticUsuario" class="col-sm-2 col-form-label">Usuario</label>
     <div class="col-sm-10">
-      <input type="text"  class="form-control-plaintext" id="usuario" name="usuario" value="Usuario">
+      <input type="text"  class="form-control-plaintext" id="usuario" name="usuario" value="${usuario}">
     </div>
   </div>
+  
+  <button class="btn btn-info">
+  	${accionBoton}
+  </button>
 </form>
 
+</div>
 
 
 

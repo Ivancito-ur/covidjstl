@@ -53,7 +53,7 @@
 				<input type="hidden" id="nombre" name="nombre" value="${ m.getName()}">		
 				<input type="hidden" id="email" name="email" value="${ m.getEmail()}">		
 				<input type="hidden" id="website" name="website" value="${ m.getWebsite()}">		
-				<input type="hidden" id="mensaje" name="message" value="${ m.getMessage()}">	
+				<input type="hidden" id="mensaje" name="mensaje" value="${ m.getMessage()}">	
 				<input type="hidden" id="usuario" name="usuario" value="${ m.getUsuario()}">	
 				
 					<tr>				
@@ -62,8 +62,9 @@
 					<th><c:out value="${m.getEmail() }" /></th>
 					<th><c:out value="${m.getWebsite()}" /></th>
 					<th><c:out value="${m.getMessage()}" /></th>
+					<th><c:out value="${m.getUsuario()}" /></th>
 					<th>
-					<button type="submit" class="btn btn-success" id="accion" name="accion" value="1"> Eliminar </button>
+					<button type="submit" class="btn btn-danger" id="accion" name="accion" value="1"> Eliminar </button>
 					<button type="submit" class="btn btn-success" id="accion" name="accion" value="2"> Actualizar </button>								
 					</th>
 				</tr>
