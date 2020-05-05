@@ -31,8 +31,6 @@
 <body>
 
 <div class="container">
-
-
 	<jsp:useBean id="mDao" class="covidjpa.dao.MensajeDao" scope="request"></jsp:useBean>
 	<table class="table">
 		<thead>
