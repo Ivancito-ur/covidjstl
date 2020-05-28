@@ -64,8 +64,9 @@ public class MensajeController extends HttpServlet {
 			System.out.println(accion);
 
 			if (accion.equals("1")) {
+				
 				MensajeDao mDao = new MensajeDao();
-				mDao.delete(m);
+				mDao.delete(String.valueOf(m.getId()) );
 
 				RequestDispatcher index = request.getRequestDispatcher("index.jsp");
 				index.forward(request, response);
